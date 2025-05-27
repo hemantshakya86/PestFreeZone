@@ -42,3 +42,4 @@ testem.log
 Thumbs.db
 /PestFreeZone.API/.vs
 /PestFreeZone.API/obj
+/PestFreeZone.API/bin/Debug/net8.0

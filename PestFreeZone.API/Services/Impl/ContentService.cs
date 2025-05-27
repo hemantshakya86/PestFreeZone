@@ -1,5 +1,6 @@
 ﻿using PestFreeZone.API.Data;
 using PestFreeZone.API.Domain;
+using PestFreeZone.API.Models;
 using PestFreeZone.API.Services.Repository;
 
 namespace PestFreeZone.API.Services.Impl

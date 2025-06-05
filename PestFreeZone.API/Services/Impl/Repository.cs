@@ -32,10 +32,11 @@ namespace PestFreeZone.API.Services.Impl
             await _dbSet.AddAsync(entity);
         }
 
-        public async Task UpdateAsync(T entity)
+        public Task UpdateAsync(T entity)
         {
             entity.UpdatedDate = DateTime.UtcNow;
             _dbSet.Update(entity);
+            return Task.CompletedTask;
         }
 
         public async Task DeleteAsync(int id)

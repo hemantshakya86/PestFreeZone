@@ -8,5 +8,6 @@ namespace PestFreeZone.API.Services
         Task<List<ContentPageModel>> GetAllContent();
         Task<bool> AddContent(ContentPageModel model);
         Task<ContentPageModel> GetContentById(int id);
+        Task<bool> ContentUpdate(ContentPageModel model);
     }
 }

@@ -24,15 +24,30 @@ namespace PestFreeZone.API.Services.Impl
                 Id = model.Id,
                 Title = model.Title,
                 SubTitle = model.SubTitle,
-                Description = model.Description
-            };
-
+                Description = model.Description,
+            }; 
+        
+            
             // Adding the new content
             await _contentRepository.AddAsync(contentPage);
             await _unitOfWork.CommitChanges();
             return true;
         }
 
+        public async Task<bool> ContentUpdate(ContentPageModel model)
+        {
+            var contentPage = await _contentRepository.GetByIdAsync(model.Id);
+            if (contentPage == null)
+            {
+                return false;
+            }
+            contentPage.Title = model.Title;
+            contentPage.SubTitle = model.SubTitle;
+            contentPage.Description = model.Description;
+            await _contentRepository.UpdateAsync(contentPage);
+            await _unitOfWork.CommitChanges();
+            return true;
+        }
 
         public async Task<List<ContentPageModel>> GetAllContent()
         {

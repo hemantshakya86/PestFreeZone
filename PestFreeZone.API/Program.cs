@@ -45,7 +45,12 @@ if (app.Environment.IsDevelopment())
 //    return await context.Users.FindAsync(userId);
 //})
 //.RequireAuthorization();
-
+app.UseCors(policy =>
+{
+    policy.AllowAnyOrigin()
+          .AllowAnyMethod()
+          .AllowAnyHeader();
+});
 app.UseHttpsRedirection();
 
 app.MapIdentityApi<User>();

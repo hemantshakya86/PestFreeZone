@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContactusComponent } from './contactus.component';
+import { ContactusComponent } from '../core/models/content-page.model';
 
 describe('ContactusComponent', () => {
   let component: ContactusComponent;

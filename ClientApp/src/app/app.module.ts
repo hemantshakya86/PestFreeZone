@@ -27,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [{provide:LocationStrategy, useClass:HashLocationStrategy }],
   bootstrap: [AppComponent]

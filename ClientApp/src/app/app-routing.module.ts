@@ -13,6 +13,7 @@ const routes: Routes = [
   {path:'blog',component:BlogComponent},
   {path:'about',component:AboutComponent},
   {path:'contact',component:ContactusComponent},
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 ];
 
 @NgModule({

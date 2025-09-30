@@ -12,7 +12,6 @@ import { HomeComponent } from './home/home.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { ReadMoreComponent } from './read-more/read-more.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +22,8 @@ import { ReadMoreComponent } from './read-more/read-more.component';
     BlogComponent,
     AboutComponent,
     HomeComponent,
+    ContactusComponent
+    ,PublicLayoutComponent
     ContactusComponent,
     ReadMoreComponent,
     WordLimitPipe
@@ -30,7 +31,7 @@ import { ReadMoreComponent } from './read-more/read-more.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [{provide:LocationStrategy, useClass:HashLocationStrategy }],
   bootstrap: [AppComponent]

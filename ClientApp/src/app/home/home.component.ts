@@ -9,14 +9,17 @@ import { ContentPageModel } from '../core/models/content-page.model';
 })
 
 export class HomeComponent implements OnInit {
-content: ContentPageModel | undefined;
-
-  constructor(private contentService:ContentService) {}
+  content: ContentPageModel | undefined;
+  slides: ContentPageModel[] = [];
+  constructor(private contentService: ContentService) { }
   ngOnInit(): void {
-    
-    this.contentService.getContentPageById(1).subscribe(res=>{
-      this.content= res;
-    })
+
+    this.contentService.getContentPageById(1).subscribe(res => {
+      this.content = res;
+    });
+    this.contentService.getSlides().subscribe(res => {
+      this.slides = res;
+    });
   }
 }
 

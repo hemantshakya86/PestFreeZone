@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using PestFreeZone.API.Data;
+using PestFreeZone.API.Domain;
 using PestFreeZone.API.Models;
 using PestFreeZone.API.Services;
 
@@ -12,10 +14,12 @@ namespace PestFreeZone.API.Controllers
 
 
         private readonly IContentService _contentService;
+        private readonly ApplicationDbContext _db;
         private readonly ILogger<ContentPageController> _logger;
 
-        public ContentPageController(ILogger<ContentPageController> logger, IContentService contentService)
+        public ContentPageController(ApplicationDbContext db, ILogger<ContentPageController> logger, IContentService contentService)
         {
+            _db = db;
             _logger = logger;
             _contentService = contentService;
         }
@@ -55,6 +59,23 @@ namespace PestFreeZone.API.Controllers
             return Ok(true); // Update successful
         }
 
+        [HttpGet("slides")]
+        public IActionResult GetSlides()
+        {
+            var sliders = _db.ContentPages?.Where(s => s.IsSlider == true).OrderBy(s=>s.Id).Select(x => new ContentPageModel
+            {
+                Description = x.Description,
+                SubTitle = x.SubTitle,
+                Title = x.Title,
+                Id = x.Id
+            }).ToList();
+
+            if (sliders == null || !sliders.Any())
+            {
+                return NotFound("No sliders found.");
+            }
+            return Ok(sliders);
+        }
 
 
 

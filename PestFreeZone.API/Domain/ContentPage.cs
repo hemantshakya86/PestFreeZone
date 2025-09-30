@@ -6,5 +6,6 @@ namespace PestFreeZone.API.Domain
         public string Title { get; set; } = null!;
         public  string SubTitle { get; set; } = null!;
         public  string Description { get; set; } = null!;
+        public bool IsSlider { get; set; } = false;
     }
 }

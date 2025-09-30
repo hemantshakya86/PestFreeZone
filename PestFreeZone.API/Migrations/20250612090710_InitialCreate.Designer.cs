@@ -12,15 +12,15 @@ using PestFreeZone.API.Data;
 namespace PestFreeZone.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241129175458_initialCreate")]
-    partial class initialCreate
+    [Migration("20250612090710_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasDefaultSchema("PestFreeZoneDB")
+                .HasDefaultSchema("pfzdb")
                 .HasAnnotation("ProductVersion", "9.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
@@ -49,7 +49,7 @@ namespace PestFreeZone.API.Migrations
                         .IsUnique()
                         .HasDatabaseName("RoleNameIndex");
 
-                    b.ToTable("AspNetRoles", "PestFreeZoneDB");
+                    b.ToTable("AspNetRoles", "pfzdb");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -74,7 +74,7 @@ namespace PestFreeZone.API.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetRoleClaims", "PestFreeZoneDB");
+                    b.ToTable("AspNetRoleClaims", "pfzdb");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -99,7 +99,7 @@ namespace PestFreeZone.API.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims", "PestFreeZoneDB");
+                    b.ToTable("AspNetUserClaims", "pfzdb");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
@@ -121,7 +121,7 @@ namespace PestFreeZone.API.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins", "PestFreeZoneDB");
+                    b.ToTable("AspNetUserLogins", "pfzdb");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
@@ -136,7 +136,7 @@ namespace PestFreeZone.API.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles", "PestFreeZoneDB");
+                    b.ToTable("AspNetUserRoles", "pfzdb");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -155,7 +155,7 @@ namespace PestFreeZone.API.Migrations
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AspNetUserTokens", "PestFreeZoneDB");
+                    b.ToTable("AspNetUserTokens", "pfzdb");
                 });
 
             modelBuilder.Entity("PestFreeZone.API.Domain.ContentPage", b =>
@@ -179,6 +179,9 @@ namespace PestFreeZone.API.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
+                    b.Property<bool>("IsSlider")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("SubTitle")
                         .IsRequired()
                         .HasColumnType("text");
@@ -192,7 +195,7 @@ namespace PestFreeZone.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ContentPages", "PestFreeZoneDB");
+                    b.ToTable("ContentPages", "pfzdb");
                 });
 
             modelBuilder.Entity("PestFreeZone.API.Domain.User", b =>
@@ -259,7 +262,7 @@ namespace PestFreeZone.API.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
 
-                    b.ToTable("AspNetUsers", "PestFreeZoneDB");
+                    b.ToTable("AspNetUsers", "pfzdb");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

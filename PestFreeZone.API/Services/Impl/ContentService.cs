@@ -25,6 +25,8 @@ namespace PestFreeZone.API.Services.Impl
                 Title = model.Title,
                 SubTitle = model.SubTitle,
                 Description = model.Description,
+                IsSlider = model.IsSlider,
+
             }; 
         
             
@@ -44,6 +46,7 @@ namespace PestFreeZone.API.Services.Impl
             contentPage.Title = model.Title;
             contentPage.SubTitle = model.SubTitle;
             contentPage.Description = model.Description;
+            contentPage.IsSlider = model.IsSlider;
             await _contentRepository.UpdateAsync(contentPage);
             await _unitOfWork.CommitChanges();
             return true;

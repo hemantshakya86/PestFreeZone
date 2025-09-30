@@ -1,4 +1,10 @@
 .admin-shell { display:flex; flex-direction:column; min-height:100vh; }
 .admin-body { display:flex; flex:1; }
-.admin-content { padding:16px; flex:1; }
-.admin-sidebar { width:220px; }
+.admin-content { padding:24px; flex:1; background:#f8f9fa; }
+.admin-sidebar { width:240px; min-height:100vh; position:sticky; top:0; }
+.admin-sidebar .nav-link { color:rgba(255,255,255,.85); }
+.admin-topnavbar { height:56px; }
+
+@media (max-width: 767.98px) {
+	.admin-sidebar { display:none; }
+}

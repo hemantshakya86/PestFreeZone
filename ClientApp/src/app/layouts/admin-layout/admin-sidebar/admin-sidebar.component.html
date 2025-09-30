@@ -1,8 +1,19 @@
-<aside class="admin-sidebar">
-  <nav>
-    <ul>
-      <li><a routerLink="/admin">Dashboard</a></li>
-      <li><a routerLink="/admin/content">Content</a></li>
+<aside class="admin-sidebar bg-dark text-light">
+  <div class="sidebar-sticky pt-3">
+    <ul class="nav flex-column">
+      <li class="nav-item px-3 mb-2 logo">
+        <a class="navbar-brand text-light" routerLink="/admin"><strong>COREUI</strong> ANGULAR</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" routerLink="/admin"><i class="fa fa-dashboard me-2"></i> Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" routerLink="/admin/content"><i class="fa fa-file-text-o me-2"></i> Content</a>
+      </li>
+      <li class="nav-item mt-3 px-3 text-uppercase small">Components</li>
+      <li class="nav-item"><a class="nav-link text-light" href="#">Base</a></li>
+      <li class="nav-item"><a class="nav-link text-light" href="#">Forms</a></li>
+      <li class="nav-item"><a class="nav-link text-light" href="#">Charts</a></li>
     </ul>
-  </nav>
+  </div>
 </aside>

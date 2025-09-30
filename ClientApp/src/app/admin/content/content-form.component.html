@@ -1,0 +1,35 @@
+<div class="container mt-3">
+  <h3>{{ id ? 'Edit' : 'Create' }} Content</h3>
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <select class="form-select" formControlName="title">
+        <option *ngFor="let t of titles" [value]="t">{{t}}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">SubTitle</label>
+      <input class="form-control" formControlName="subTitle" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description (HTML)</label>
+
+      <div class="editor-toolbar btn-group mb-2" role="toolbar">
+        <button type="button" class="btn btn-light btn-sm" (click)="exec('bold')"><b>B</b></button>
+        <button type="button" class="btn btn-light btn-sm" (click)="exec('italic')"><i>I</i></button>
+        <button type="button" class="btn btn-light btn-sm" (click)="exec('underline')"><u>U</u></button>
+        <button type="button" class="btn btn-light btn-sm" (click)="exec('insertUnorderedList')">• List</button>
+        <button type="button" class="btn btn-light btn-sm" (click)="exec('insertOrderedList')">1. List</button>
+        <button type="button" class="btn btn-light btn-sm" (click)="createLink()">Link</button>
+        <button type="button" class="btn btn-light btn-sm" (click)="exec('removeFormat')">Clear</button>
+      </div>
+
+      <div #editor class="content-editor border p-2" contenteditable="true" (input)="onEditorInput($event)"></div>
+      <input type="hidden" formControlName="description" />
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+    <a class="btn btn-secondary ms-2" routerLink="/admin/content">Cancel</a>
+  </form>
+</div>

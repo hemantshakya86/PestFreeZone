@@ -1,0 +1,5 @@
+.container { padding: 8px; }
+
+.content-editor { min-height: 180px; background:#fff; }
+.editor-toolbar .btn { margin-right:4px }
+.preview-area { background:#fff; min-height:80px }

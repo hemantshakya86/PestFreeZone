@@ -7,6 +7,10 @@ import { AdminLayoutComponent } from '../layouts/admin-layout/admin-layout.compo
 import { AdminHeaderComponent } from '../layouts/admin-layout/admin-header/admin-header.component';
 import { AdminSidebarComponent } from '../layouts/admin-layout/admin-sidebar/admin-sidebar.component';
 import { AdminFooterComponent } from '../layouts/admin-layout/admin-footer/admin-footer.component';
+import { AdminDashboardComponent } from './dashboard/admin-dashboard.component';
+import { ContentListComponent } from './content/content-list.component';
+import { ContentFormComponent } from './content/content-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,10 +20,15 @@ import { AdminFooterComponent } from '../layouts/admin-layout/admin-footer/admin
     AdminHeaderComponent,
     AdminSidebarComponent,
     AdminFooterComponent
+    ,AdminDashboardComponent
+    ,ContentListComponent
+    ,ContentFormComponent
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }

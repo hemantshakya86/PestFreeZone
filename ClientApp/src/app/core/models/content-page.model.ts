@@ -1,6 +1,6 @@
 export interface ContentPageModel {
-  id: number;
-  title: string;
-  subTitle: string;
-  description: string;
+  id?: number;
+  title: 'Home' | 'AboutUs' | 'Services' | 'ContactUs' | string;
+  subTitle?: string;
+  description?: string; // HTML content
 }

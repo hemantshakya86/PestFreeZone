@@ -2,16 +2,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { AdminLayoutComponent } from '../layouts/admin-layout/admin-layout.component';
-
+import { AdminDashboardComponent } from './dashboard/admin-dashboard.component';
+import { ContentListComponent } from './content/content-list.component';
+import { ContentFormComponent } from './content/content-form.component';
 const routes: Routes = [
   {
     path: '',
     component: AdminLayoutComponent,
     children: [
-      // default admin landing - could map to AdminComponent or a dashboard component
-      { path: '', component: AdminComponent },
-      // example child route for content management
-      { path: 'content', component: AdminComponent },
+      // default admin landing - dashboard
+      { path: '', component: AdminDashboardComponent },
+      // content management routes
+      { path: 'content', component: ContentListComponent },
+      { path: 'content/new', component: ContentFormComponent },
+      { path: 'content/:id/edit', component: ContentFormComponent },
     ]
   }
 ];

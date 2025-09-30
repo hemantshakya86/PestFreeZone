@@ -19,7 +19,7 @@
                 <div class="container">
                   <div class="banner_main">
                     <h1 class="banner_taital">{{ slide.title | wordLimit:10 }}</h1>
-                    <p class="banner_text">{{ slide.subTitle | wordLimit:10 }}</p>
+                    <p class="banner_text">{{ (slide.subTitle ?? '') | wordLimit:10 }}</p>
                     <div class="btn_main">
                       <div class="contact_bt active">
                         <a [routerLink]="['/contactus']">Contact Us</a>

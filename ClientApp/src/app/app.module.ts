@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     AboutComponent,
     HomeComponent,
     ContactusComponent
+    ,PublicLayoutComponent
   ],
   imports: [
     BrowserModule,

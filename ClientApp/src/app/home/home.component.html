@@ -1,103 +1,62 @@
 <div class="header_section">
-    <div class="banner_section layout_padding">
+  <div class="banner_section layout_padding">
+    <div class="container-fluid">
+      <section class="slide-wrapper">
         <div class="container-fluid">
-           <section class="slide-wrapper">
-              <div class="container-fluid">
-                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                       <li data-target="#myCarousel" data-slide-to="1"></li>
-                       <li data-target="#myCarousel" data-slide-to="2"></li>
-                       <li data-target="#myCarousel" data-slide-to="3"></li>
-                       <li data-target="#myCarousel" data-slide-to="4"></li>
-                    </ol>
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                       <div class="carousel-item active">
-                          <div class="container">
-                             <div class="banner_main">
-                                <h1 class="banner_taital">Business Agency Profit Your Marketing</h1>
-                                <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
-                                <div class="btn_main">
-                                   <div class="contact_bt active "><a href="#">Contact Us</a></div>
-                                   <div class="readmore_bt"><a href="#">Read More</a></div>
-                                </div>
-                             </div>
-                          </div>
-                       </div>
-                       <div class="carousel-item">
-                          <div class="container">
-                             <div class="banner_main">
-                                <h1 class="banner_taital">Business Agency Profit Your Marketing</h1>
-                                <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
-                                <div class="btn_main">
-                                   <div class="contact_bt active "><a href="#">Contact Us</a></div>
-                                   <div class="readmore_bt"><a href="#">Read More</a></div>
-                                </div>
-                             </div>
-                          </div>
-                       </div>
-                       <div class="carousel-item">
-                          <div class="container">
-                             <div class="banner_main">
-                                <h1 class="banner_taital">Business Agency Profit Your Marketing</h1>
-                                <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
-                                <div class="btn_main">
-                                   <div class="contact_bt active "><a href="#">Contact Us</a></div>
-                                   <div class="readmore_bt"><a href="#">Read More</a></div>
-                                </div>
-                             </div>
-                          </div>
-                       </div>
-                       <div class="carousel-item">
-                          <div class="container">
-                             <div class="banner_main">
-                                <h1 class="banner_taital">Business Agency Profit Your Marketing</h1>
-                                <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
-                                <div class="btn_main">
-                                   <div class="contact_bt active "><a href="#">Contact Us</a></div>
-                                   <div class="readmore_bt"><a href="#">Read More</a></div>
-                                </div>
-                             </div>
-                          </div>
-                       </div>
-                       <div class="carousel-item">
-                          <div class="container">
-                             <div class="banner_main">
-                                <h1 class="banner_taital">Business Agency Profit Your Marketing</h1>
-                                <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
-                                <div class="btn_main">
-                                   <div class="contact_bt active "><a href="#">Contact Us</a></div>
-                                   <div class="readmore_bt"><a href="#">Read More</a></div>
-                                </div>
-                             </div>
-                          </div>
-                       </div>
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li *ngFor="let slide of slides; let i = index"
+                  [attr.data-target]="'#myCarousel'"
+                  [attr.data-slide-to]="i"
+                  [class.active]="i === 0"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div *ngFor="let slide of slides; let i = index"
+                   class="carousel-item"
+                   [class.active]="i === 0">
+                <div class="container">
+                  <div class="banner_main">
+                    <h1 class="banner_taital">{{ slide.title | wordLimit:10 }}</h1>
+                    <p class="banner_text">{{ slide.subTitle | wordLimit:10 }}</p>
+                    <div class="btn_main">
+                      <div class="contact_bt active">
+                        <a [routerLink]="['/contactus']">Contact Us</a>
+                      </div>
+                      <div class="readmore_bt">
+                        <a [routerLink]="['/readmore', slide.id]">Read More</a>
+                      </div>
                     </div>
-                 </div>
+                  </div>
+                </div>
               </div>
-           </section>
+            </div>
+          </div>
         </div>
-     </div>
+      </section>
+    </div>
+  </div>
 </div>
 
 <div class="about_section layout_padding">
-    <div class="container">
-        <h1 class="about_taital">{{content?.title}}</h1>
-        <p class="about_text">{{content?.subTitle}}</p>
-        <div class="about_section_2">
-           <div class="row">
-              <div class="col-lg-6">
-                 <div class="about_image"><img src="assets/images/about-img.png"></div>
-              </div>
-              <div class="col-lg-6">
-                 <div class="about_taital_main">
-                    <p class="lorem_text">{{content?.description}} </p>
-                    <div class="read_bt"><a href="#">Read More</a></div>
-                 </div>
-              </div>
-           </div>
+  <div class="container">
+    <h1 class="about_taital">{{content?.title}}</h1>
+    <p class="about_text">{{content?.subTitle}}</p>
+    <div class="about_section_2">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="about_image"><img src="assets/images/about-img.png"></div>
         </div>
-     </div>
- </div>
+        <div class="col-lg-6">
+          <div class="about_taital_main">
+            <p class="lorem_text">{{content?.description}}</p>
+            <div class="readmore_bt">
+                        <a [routerLink]="['/readmore', content?.id]">Read More</a>
+                      </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

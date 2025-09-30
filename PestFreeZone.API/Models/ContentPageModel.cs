@@ -6,5 +6,6 @@
         public required string Title { get; set; }
         public required string SubTitle { get; set; }
         public required string Description { get; set; }
+        public bool IsSlider { get; set; } 
     }
 }

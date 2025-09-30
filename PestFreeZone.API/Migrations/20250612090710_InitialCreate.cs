@@ -7,17 +7,17 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace PestFreeZone.API.Migrations
 {
     /// <inheritdoc />
-    public partial class initialCreate : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
-                name: "PestFreeZoneDB");
+                name: "pfzdb");
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
@@ -32,7 +32,7 @@ namespace PestFreeZone.API.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUsers",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
@@ -59,7 +59,7 @@ namespace PestFreeZone.API.Migrations
 
             migrationBuilder.CreateTable(
                 name: "ContentPages",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -67,6 +67,7 @@ namespace PestFreeZone.API.Migrations
                     Title = table.Column<string>(type: "text", nullable: false),
                     SubTitle = table.Column<string>(type: "text", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: false),
+                    IsSlider = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     DeletedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
@@ -79,7 +80,7 @@ namespace PestFreeZone.API.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -94,7 +95,7 @@ namespace PestFreeZone.API.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
                         column: x => x.RoleId,
-                        principalSchema: "PestFreeZoneDB",
+                        principalSchema: "pfzdb",
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -102,7 +103,7 @@ namespace PestFreeZone.API.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -117,7 +118,7 @@ namespace PestFreeZone.API.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserClaims_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "PestFreeZoneDB",
+                        principalSchema: "pfzdb",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -125,7 +126,7 @@ namespace PestFreeZone.API.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserLogins",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 columns: table => new
                 {
                     LoginProvider = table.Column<string>(type: "text", nullable: false),
@@ -139,7 +140,7 @@ namespace PestFreeZone.API.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserLogins_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "PestFreeZoneDB",
+                        principalSchema: "pfzdb",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -147,7 +148,7 @@ namespace PestFreeZone.API.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserRoles",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "text", nullable: false),
@@ -159,14 +160,14 @@ namespace PestFreeZone.API.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
                         column: x => x.RoleId,
-                        principalSchema: "PestFreeZoneDB",
+                        principalSchema: "pfzdb",
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "PestFreeZoneDB",
+                        principalSchema: "pfzdb",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -174,7 +175,7 @@ namespace PestFreeZone.API.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserTokens",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "text", nullable: false),
@@ -188,7 +189,7 @@ namespace PestFreeZone.API.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserTokens_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalSchema: "PestFreeZoneDB",
+                        principalSchema: "pfzdb",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -196,44 +197,44 @@ namespace PestFreeZone.API.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 table: "AspNetRoleClaims",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 table: "AspNetRoles",
                 column: "NormalizedName",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 table: "AspNetUserClaims",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserLogins_UserId",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 table: "AspNetUserLogins",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserRoles_RoleId",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 table: "AspNetUserRoles",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
-                schema: "PestFreeZoneDB",
+                schema: "pfzdb",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
@@ -244,35 +245,35 @@ namespace PestFreeZone.API.Migrations
         {
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims",
-                schema: "PestFreeZoneDB");
+                schema: "pfzdb");
 
             migrationBuilder.DropTable(
                 name: "AspNetUserClaims",
-                schema: "PestFreeZoneDB");
+                schema: "pfzdb");
 
             migrationBuilder.DropTable(
                 name: "AspNetUserLogins",
-                schema: "PestFreeZoneDB");
+                schema: "pfzdb");
 
             migrationBuilder.DropTable(
                 name: "AspNetUserRoles",
-                schema: "PestFreeZoneDB");
+                schema: "pfzdb");
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens",
-                schema: "PestFreeZoneDB");
+                schema: "pfzdb");
 
             migrationBuilder.DropTable(
                 name: "ContentPages",
-                schema: "PestFreeZoneDB");
+                schema: "pfzdb");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles",
-                schema: "PestFreeZoneDB");
+                schema: "pfzdb");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers",
-                schema: "PestFreeZoneDB");
+                schema: "pfzdb");
         }
     }
 }
